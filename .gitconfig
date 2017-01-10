@@ -1,0 +1,11 @@
+[alias]
+	st = status -s
+  lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[user]
+	name = Jon Börjesson
+  email = jon@spuun.se
+[color]
+  ui=true
+
+[core]
+	excludesfile = ~/.gitignore_global
