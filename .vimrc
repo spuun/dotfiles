@@ -66,6 +66,7 @@ set expandtab
 set ruler       " show the cursor position all the time
 set incsearch   " incremental searching
 
+set cursorline  " highlight cursor line
 
 set nobomb      " no utf8 bom
 set autoindent  " auto indent on always
