@@ -1,6 +1,8 @@
 if [[ ":$PATH:" != *":/usr/local/sbin:"* ]]; then
   export PATH=$PATH:/usr/local/sbin
 fi
+export PATH=$HOME/.bin:$PATH
+
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
@@ -53,29 +55,4 @@ function gitall {
     fi
   done
 }
-function gpall {
-  echo "Use: git pall"
-}
-function git_pull_all {
-  for dir in `ls -1`; do
-    if [ -d "$dir/.git" ]; then
-      echo "Pulling $dir..."
-      pushd . 1>/dev/null
-      cd $dir
-      git pull 1>/dev/null
-      popd 1>/dev/null
-    fi
-  done
-  echo "Done."
-}
-function git_status_all {
-  for dir in `ls -1`; do
-    if [ -d "$dir/.git" ]; then
-      echo "-- $dir --"
-      pushd . 1>/dev/null
-      cd $dir
-      git st
-      popd 1>/dev/null
-    fi
-  done
-}
+
