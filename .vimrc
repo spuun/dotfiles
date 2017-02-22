@@ -66,6 +66,7 @@ set expandtab
 set ruler       " show the cursor position all the time
 set incsearch   " incremental searching
 
+set cursorline  " highlight cursor line
 
 set nobomb      " no utf8 bom
 set autoindent  " auto indent on always
@@ -79,3 +80,8 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/jon/.rbenv/shims/rubocop'
 " let g:syntastic_javascript_checkers = ['jshint']
 
+"faster pane switching
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k 
+nnoremap <c-l> <c-w>l
