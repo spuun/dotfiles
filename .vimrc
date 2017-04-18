@@ -74,7 +74,7 @@ set t_Co=256
 set laststatus=2
 nnoremap åå <c-^>
 
-
+let g:ctrlp_working_path_mode = ''
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/jon/.rbenv/shims/rubocop'
@@ -85,3 +85,9 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k 
 nnoremap <c-l> <c-w>l
+
+"faster pane resizing
+nnoremap <c-right> <c-w>>
+nnoremap <c-left> <c-w><
+nnoremap <c-up> <c-w>+
+nnoremap <c-down> <c-w>-
