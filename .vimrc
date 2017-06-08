@@ -54,6 +54,7 @@ filetype plugin indent on    " required
 
 syntax on
 set number
+set hlsearch 
 
 let g:solarized_termcolors=256
 colorscheme solarized
@@ -65,6 +66,11 @@ set expandtab
 
 set ruler       " show the cursor position all the time
 set incsearch   " incremental searching
+set ignorecase
+set smartcase
+
+set undofile
+set undodir=~/.vimundo
 
 set cursorline  " highlight cursor line
 
