@@ -80,6 +80,8 @@ set t_Co=256
 set laststatus=2
 nnoremap åå <c-^>
 
+set backspace=indent,eol,start
+
 let g:ctrlp_working_path_mode = ''
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
