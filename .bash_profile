@@ -5,6 +5,11 @@ if [[ ":$PATH:" != *":/usr/local/sbin:"* ]]; then
 fi
 export PATH=$HOME/.bin:$PATH
 
+
+if [[ -d "$HOME/code/tools/bin" ]]; then
+  export PATH=$PATH:$HOME/code/tools/bin
+fi
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
