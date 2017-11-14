@@ -18,6 +18,14 @@ darwin_only() {
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
+
+  alias git=hub
+  gpp() {
+    git push origin && git push heroku
+  }
+  gppl() {
+    gpp && heroku logs -t
+  }
 }
 
 case "$kernel" in
@@ -31,6 +39,10 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 PS1='\W$(__git_ps1 " (%s)")\$ '
 
+
+if [ -f $HOME/.env_vars ]; then
+  source $HOME/.env_vars
+fi
 
 function rmb {
   current_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
@@ -74,3 +86,15 @@ function gitall {
   done
 }
 
+function test-port4 {
+  nc -4vz $*
+}
+function test-port6 {
+  nc -6vz $*
+}
+function test-ssl4 {
+  openssl s_client -showcerts -4 -connect $* </dev/null
+}
+function test-ssl6 {
+  openssl s_client -showcerts -6 -connect $* </dev/null
+}
