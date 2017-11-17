@@ -98,3 +98,6 @@ function test-ssl4 {
 function test-ssl6 {
   openssl s_client -showcerts -6 -connect $* </dev/null
 }
+function queuehash {
+  erl -noshell -eval "<<Num:128>> = erlang:md5(term_to_binary({resource,<<\"$1\">>,queue,<<\"$2\">>})), io:format(\"~.36B~n\", [Num]), init:stop()."
+}
