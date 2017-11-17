@@ -31,8 +31,11 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-ruby/vim-ruby'
+" Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
+Plugin 'tpope/vim-rhubarb'
+Plugin 'sheerun/vim-polyglot'
+" Plugin 'vim-ruby/vim-ruby'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ctrlpvim/ctrlp.vim'
