@@ -39,6 +39,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -90,6 +91,7 @@ let g:ctrlp_working_path_mode = ''
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/jon/.rbenv/shims/rubocop'
 " let g:syntastic_javascript_checkers = ['jshint']
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 "faster pane switching
 nnoremap <c-h> <c-w>h
