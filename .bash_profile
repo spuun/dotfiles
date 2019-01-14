@@ -31,9 +31,22 @@ darwin_only() {
   export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 }
 
+ubuntu_only()
+{
+  killall ssh-agent > /dev/null 2>&1
+  eval $(ssh-agent -s) > /dev/null 2>&1
+}
+
 case "$kernel" in
   'Darwin')
     darwin_only
+    ;;
+  'Linux')
+    case `lsb_release -i -s` in
+      'Ubuntu')
+        ubuntu_only
+        ;;
+    esac
     ;;
 esac  
 
