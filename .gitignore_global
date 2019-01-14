@@ -1,3 +1,5 @@
 *.swp
 *.swo
 *~
+.ruby-version
+.DS_Store

@@ -31,11 +31,39 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-ruby/vim-ruby'
+" Plugin 'scrooloose/syntastic'
+"
+
+" Async lint
+Plugin 'w0rp/ale'
+
+" git/hub stuff
+"Plugin 'tpope/vim-rhubarb'
+
+" programming language packs, installs lang when needed
+Plugin 'sheerun/vim-polyglot'
+
+" Plugin 'vim-ruby/vim-ruby'
+
+" Show modified lines according to git
 Plugin 'airblade/vim-gitgutter'
+
+" Color scheme
 Plugin 'altercation/vim-colors-solarized'
+
+" Open files
 Plugin 'ctrlpvim/ctrlp.vim'
+
+" Silver searcher (ag in bash)
+Plugin 'mileszs/ack.vim'
+
+" Erlang
+Plugin 'vim-erlang/vim-erlang-compiler'
+Plugin 'jimenezrick/vimerl'
+Plugin 'edkolev/erlang-motions.vim'
+
+" Go
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,6 +82,7 @@ filetype plugin indent on    " required
 
 syntax on
 set number
+set hlsearch 
 
 let g:solarized_termcolors=256
 colorscheme solarized
@@ -65,6 +94,11 @@ set expandtab
 
 set ruler       " show the cursor position all the time
 set incsearch   " incremental searching
+set ignorecase
+set smartcase
+
+set undofile
+set undodir=~/.vimundo
 
 set cursorline  " highlight cursor line
 
@@ -74,14 +108,32 @@ set t_Co=256
 set laststatus=2
 nnoremap åå <c-^>
 
+set backspace=indent,eol,start
 
+let g:ctrlp_working_path_mode = ''
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/jon/.rbenv/shims/rubocop'
 " let g:syntastic_javascript_checkers = ['jshint']
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" erlang
+autocmd BufRead,BufNewFile *.erl,*.es.*.hrl,*.yaws,*.xrl set expandtab
+au BufNewFile,BufRead *.erl,*.es,*.hrl,*.yaws,*.xrl setf erlang
+let g:syntastic_mode_map = { 'passive_filetypes': ['erlang'] } 
+let g:ale_linters = { 'erlang': [] }
 
 "faster pane switching
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k 
 nnoremap <c-l> <c-w>l
+
+"faster pane resizing
+nnoremap <c-right> <c-w>>
+nnoremap <c-left> <c-w><
+nnoremap <c-up> <c-w>+
+nnoremap <c-down> <c-w>-
+
+" gostuff
+let g:go_fmt_autosave = 1

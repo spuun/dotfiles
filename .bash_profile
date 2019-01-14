@@ -6,10 +6,26 @@ fi
 export PATH=$HOME/.bin:$PATH
 
 
+if [[ -d "$HOME/code/tools/bin" ]]; then
+  export PATH=$PATH:$HOME/code/tools/bin
+fi
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
 darwin_only() {
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
+
+  alias git=hub
+  gpp() {
+    git push origin && git push heroku
+  }
+  gppl() {
+    gpp && heroku logs -t
+  }
 }
 
 case "$kernel" in
@@ -23,6 +39,10 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 PS1='\W$(__git_ps1 " (%s)")\$ '
 
+
+if [ -f $HOME/.env_vars ]; then
+  source $HOME/.env_vars
+fi
 
 function rmb {
   current_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
@@ -71,3 +91,18 @@ if [ -d "$HOME/.nvm" ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+function test-port4 {
+  nc -4vz $*
+}
+function test-port6 {
+  nc -6vz $*
+}
+function test-ssl4 {
+  openssl s_client -showcerts -4 -connect $* </dev/null
+}
+function test-ssl6 {
+  openssl s_client -showcerts -6 -connect $* </dev/null
+}
+function queuehash {
+  erl -noshell -eval "<<Num:128>> = erlang:md5(term_to_binary({resource,<<\"$1\">>,queue,<<\"$2\">>})), io:format(\"~.36B~n\", [Num]), init:stop()."
+}
