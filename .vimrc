@@ -49,7 +49,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
 
 " Open files
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -84,9 +84,9 @@ syntax on
 set number
 set hlsearch 
 
-let g:solarized_termcolors=256
-colorscheme solarized
+"let g:solarized_termcolors=256
 set background=dark
+colorscheme torte
 
 set tabstop=2
 set shiftwidth=2
@@ -121,7 +121,6 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 autocmd BufRead,BufNewFile *.erl,*.es.*.hrl,*.yaws,*.xrl set expandtab
 au BufNewFile,BufRead *.erl,*.es,*.hrl,*.yaws,*.xrl setf erlang
 let g:syntastic_mode_map = { 'passive_filetypes': ['erlang'] } 
-let g:ale_linters = { 'erlang': [] }
 
 "faster pane switching
 nnoremap <c-h> <c-w>h
@@ -137,3 +136,12 @@ nnoremap <c-down> <c-w>-
 
 " gostuff
 let g:go_fmt_autosave = 1
+
+" lint
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\   'erlang': []
+\}
+let g:ale_fixers = {'javascript': ['standard']}
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1

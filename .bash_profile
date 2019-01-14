@@ -1,4 +1,5 @@
 kernel=`uname`
+export LC_ALL=en_US.UTF-8
 
 if [[ ":$PATH:" != *":/usr/local/sbin:"* ]]; then
   export PATH=$PATH:/usr/local/sbin
@@ -26,6 +27,8 @@ darwin_only() {
   gppl() {
     gpp && heroku logs -t
   }
+
+  export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 }
 
 case "$kernel" in
@@ -100,4 +103,7 @@ function test-ssl6 {
 }
 function queuehash {
   erl -noshell -eval "<<Num:128>> = erlang:md5(term_to_binary({resource,<<\"$1\">>,queue,<<\"$2\">>})), io:format(\"~.36B~n\", [Num]), init:stop()."
+}
+function ssl-cert-exp {
+  test-ssl4 $* 2>/dev/null | openssl x509 -enddate -noout
 }
