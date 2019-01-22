@@ -111,6 +111,12 @@ nnoremap åå <c-^>
 set backspace=indent,eol,start
 
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others']
+    \ },
+  \ 'fallback': 'find %s -type f'
+  \ }
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/jon/.rbenv/shims/rubocop'
@@ -136,6 +142,7 @@ nnoremap <c-down> <c-w>-
 
 " gostuff
 let g:go_fmt_autosave = 1
+let g:go_version_warning = 0
 
 " lint
 let g:ale_linters = {
