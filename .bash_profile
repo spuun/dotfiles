@@ -4,8 +4,10 @@ export LC_ALL=en_US.UTF-8
 if [[ ":$PATH:" != *":/usr/local/sbin:"* ]]; then
   export PATH=$PATH:/usr/local/sbin
 fi
-export PATH=$HOME/.bin:$PATH
 
+if [[ -d "$HOME/.bin" ]]; then
+  export PATH=$HOME/.bin:$PATH
+fi
 
 if [[ -d "$HOME/code/tools/bin" ]]; then
   export PATH=$PATH:$HOME/code/tools/bin
