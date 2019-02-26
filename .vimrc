@@ -1,7 +1,6 @@
 noremap <Up> <NOP>
 noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+noremap <Left> <NOP> noremap <Right> <NOP>
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -83,6 +82,10 @@ filetype plugin indent on    " required
 syntax on
 set number
 set hlsearch 
+
+"show invisibles
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:¶
+set list
 
 "let g:solarized_termcolors=256
 set background=dark
