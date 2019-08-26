@@ -49,6 +49,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
 "Plugin 'altercation/vim-colors-solarized'
+Plugin 'nightsense/stellarized'
 
 " Open files
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -63,6 +64,8 @@ Plugin 'edkolev/erlang-motions.vim'
 
 " Go
 Plugin 'fatih/vim-go'
+
+Plugin 'editorconfig/editorconfig-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -90,6 +93,7 @@ set list
 "let g:solarized_termcolors=256
 set background=dark
 colorscheme torte
+colorscheme stellarized
 
 set tabstop=2
 set shiftwidth=2
@@ -110,6 +114,12 @@ set autoindent  " auto indent on always
 set t_Co=256
 set laststatus=2
 nnoremap åå <c-^>
+
+set splitbelow
+set splitright
+
+set cindent
+set cino+=j1,(0,ws,Ws
 
 set backspace=indent,eol,start
 
@@ -150,7 +160,8 @@ let g:go_version_warning = 0
 " lint
 let g:ale_linters = {
 \   'javascript': ['standard'],
-\   'erlang': []
+\   'erlang': [],
+\   'ruby': ['rubocop']
 \}
 let g:ale_fixers = {'javascript': ['standard']}
 let g:ale_lint_on_save = 1
