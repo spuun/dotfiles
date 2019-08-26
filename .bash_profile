@@ -127,3 +127,5 @@ function queuehash {
 function ssl-cert-exp {
   test-ssl4 $* 2>/dev/null | openssl x509 -enddate -noout
 }
+
+EDITOR="vim"
