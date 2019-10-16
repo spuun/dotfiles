@@ -1,0 +1,4 @@
+-f .ctag
+
+--exclude=.git
+--exclude=.ctags
