@@ -2,7 +2,7 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP> noremap <Right> <NOP>
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype on                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -42,7 +42,7 @@ Plugin 'w0rp/ale'
 " programming language packs, installs lang when needed
 Plugin 'sheerun/vim-polyglot'
 
-" Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
 
 " Show modified lines according to git
 Plugin 'airblade/vim-gitgutter'
@@ -71,7 +71,7 @@ Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -81,10 +81,12 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+"
+set tags=.ctags;
 
 syntax on
 set number
-set hlsearch 
+set hlsearch
 
 "show invisibles
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:¶
