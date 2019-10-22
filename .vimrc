@@ -53,6 +53,7 @@ Plugin 'nightsense/stellarized'
 
 " Open files
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ivalkeen/vim-ctrlp-tjump'
 
 " Silver searcher (ag in bash)
 Plugin 'mileszs/ack.vim'
@@ -82,7 +83,13 @@ filetype plugin on
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
-set tags=.ctags;
+set tags=./.tags;
+
+"c-å to jump to tag
+nnoremap <c-]> :CtrlPtjump<cr>
+vnoremap <c-]> :CtrlPtjumpVisual<cr>
+" jump directly to tag of only one found
+let g:ctrlp_tjump_only_silent = 1
 
 syntax on
 set number

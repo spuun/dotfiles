@@ -13,3 +13,5 @@
 [merge "keepMine"]
   name = always keep mine during merge
   driver = keepMine.sh %O %A %B
+[advice]
+	pushNonFastForward = false

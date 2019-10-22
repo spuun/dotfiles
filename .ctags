@@ -1,4 +1,4 @@
--f .ctag
+-f .tags
 
 --exclude=.git
---exclude=.ctags
+--exclude=.tags
