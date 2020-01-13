@@ -17,6 +17,12 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
+ssh() {
+  [ -n "$TMUX" ] && tmux rename-window "${@: -1}"
+  /usr/local/bin/ssh "$@"
+  [ -n "$TMUX" ] && tmux setw automatic-rename
+}
+
 darwin_only() {
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
