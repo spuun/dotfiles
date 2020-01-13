@@ -99,16 +99,7 @@ function rmb {
     fi
   fi
 }
-function gitall {
-  for dir in `ls -1`; do
-    if [ -d "$dir/.git" ]; then
-      pushd . 1>/dev/null
-      cd $dir
-      git $* | xargs -L1 echo [$dir]
-      popd 1>/dev/null
-    fi
-  done
-}
+
 
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"

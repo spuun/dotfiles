@@ -1,0 +1,8 @@
+#!/usr/local/bin/bash
+for dir in `ls -1`; do
+ if [ -d "$dir/.git" ]; then
+  pushd $dir 1>/dev/null
+  git $* | xargs -L1 echo [$dir]
+  popd 1>/dev/null
+ fi
+done
