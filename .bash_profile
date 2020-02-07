@@ -1,5 +1,6 @@
 kernel=`uname`
 export LC_ALL=en_US.UTF-8
+export HISTCONTROL=ignorespace
 
 if [[ ":$PATH:" != *":/usr/local/sbin:"* ]]; then
   export PATH=$PATH:/usr/local/sbin
