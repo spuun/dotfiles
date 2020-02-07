@@ -2,11 +2,11 @@
 set -e
 declare -a git_gems
 git_gems=()
-bundle show | awk '/^* (.*) \(.* .*\)/ { print $2; }' | while read line ; do git_gems+=($line) ; done
+bundle list | awk '/^* (.*) \(.* .*\)/ { print $2; }' | while read line ; do git_gems+=($line) ; done
 proc=`cat Procfile | cut -d : -f 1`
-cmd="rerun --pattern '{**/*.{rb,ru,json,txt,scss,sass},Gemfile,Gemfile.lock,Rakefile,*.gemspec}' --signal INT --dir '."
+cmd="rerun --pattern '{**/*.{rb,ru,json,txt,scss,sass},Gemfile,Gemfile.lock,Rakefile,*.gemspec}' -c --signal INT --dir '."
 for i in "${git_gems[@]}"; do
-  gem_path=$(bundle show "$i")
+  gem_path=$(bundle info "$i" --path)
   cmd+=",$gem_path"
 done
 cmd+="' foreman run $proc"
