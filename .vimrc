@@ -96,13 +96,14 @@ set number
 set hlsearch
 
 "show invisibles
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:¶
+set listchars=eol:$,tab:-->,trail:~,extends:>,precedes:<,nbsp:¶
 set list
 
 "let g:solarized_termcolors=256
 set background=dark
-colorscheme torte
 colorscheme stellarized
+:hi SpecialKey ctermfg=darkgrey guifg=grey70
+:hi NonText ctermfg=darkgrey guifg=grey70
 
 set tabstop=2
 set shiftwidth=2
@@ -144,6 +145,9 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/jon/.rbenv/shims/rubocop'
 " let g:syntastic_javascript_checkers = ['jshint']
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+"disable graphql
+let g:polyglot_disabled = ['graphql']
 
 " erlang
 autocmd BufRead,BufNewFile *.erl,*.es.*.hrl,*.yaws,*.xrl set expandtab
