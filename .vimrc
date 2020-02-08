@@ -49,7 +49,8 @@ Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
 "Plugin 'altercation/vim-colors-solarized'
-Plugin 'nightsense/stellarized'
+"Plugin 'nightsense/stellarized'
+Plugin 'NLKNguyen/papercolor-theme'
 
 " Open files
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -101,7 +102,7 @@ set list
 
 "let g:solarized_termcolors=256
 set background=dark
-colorscheme stellarized
+colorscheme PaperColor
 :hi SpecialKey ctermfg=darkgrey guifg=grey70
 :hi NonText ctermfg=darkgrey guifg=grey70
 
