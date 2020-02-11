@@ -102,6 +102,14 @@ set list
 
 "let g:solarized_termcolors=256
 set background=dark
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 1
+  \     }
+  \   }
+  \ }
+
 colorscheme PaperColor
 :hi SpecialKey ctermfg=darkgrey guifg=grey70
 :hi NonText ctermfg=darkgrey guifg=grey70
