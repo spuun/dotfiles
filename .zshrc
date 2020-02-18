@@ -1,14 +1,11 @@
 # Set up the prompt
 alias python=python3
 export ZPLUG_HOME=$HOME/.zplug
-#    export ZPLUG_HOME=/usr/local/opt/zplug
-#  source $ZPLUG_HOME/init.zshk
-#fi
-#
+
 if [[ -f /usr/share/zplug/init.zsh ]]; then
   source /usr/share/zplug/init.zsh
-elif [[ -f /usr/local/opt/zplug/init.zsh ]]; then
-  source /usr/local/opt/zplug/init.zsh
+elif [[ -f $HOME/.zplug/init.zsh ]]; then
+  source $HOME/.zplug/init.zsh
 fi
 
 zplug "zplug/zplug"
@@ -70,5 +67,4 @@ zplug load --verbose
 #
 #
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -f "$HOME/.profile" ] && source $HOME/.profile
