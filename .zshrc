@@ -1,7 +1,15 @@
 # Set up the prompt
 alias python=python3
 export ZPLUG_HOME=$HOME/.zplug
-source /usr/share/zplug/init.zsh
+#    export ZPLUG_HOME=/usr/local/opt/zplug
+#  source $ZPLUG_HOME/init.zshk
+#fi
+#
+if [[ -f /usr/share/zplug/init.zsh ]]; then
+  source /usr/share/zplug/init.zsh
+elif [[ -f /usr/local/opt/zplug/init.zsh ]]; then
+  source /usr/local/opt/zplug/init.zsh
+fi
 
 zplug "zplug/zplug"
 zplug "zsh-users/zsh-syntax-highlighting"
