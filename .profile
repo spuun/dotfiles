@@ -22,10 +22,10 @@ if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 fi
-
+__sshcmd=`which ssh`
 ssh() {
   [ -n "$TMUX" ] && tmux rename-window "${@:-1}"
-  /usr/local/bin/ssh "$@"
+  ${__sshcmd} "$@"
   [ -n "$TMUX" ] && tmux setw automatic-rename
 }
 
