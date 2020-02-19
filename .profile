@@ -1,4 +1,6 @@
+
 kernel=`uname`
+
 export LC_ALL=en_US.UTF-8
 export HISTCONTROL=ignorespace
 
@@ -19,29 +21,24 @@ fi
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
 ssh() {
-  [ -n "$TMUX" ] && tmux rename-window "${@: -1}"
+  [ -n "$TMUX" ] && tmux rename-window "${@:-1}"
   /usr/local/bin/ssh "$@"
   [ -n "$TMUX" ] && tmux setw automatic-rename
 }
 
 darwin_only() {
-#  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-#    . $(brew --prefix)/etc/bash_completion
-#  fi
-
   alias git=hub
   gpp() {
     git push origin && git push heroku
   }
-  gppl() {
-    gpp && heroku logs -t
-  }
+gppl() {
+  gpp && heroku logs -t
+}
 
-  export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 }
 
 ubuntu_only()
@@ -105,22 +102,23 @@ function rmb {
 
 
 function test-port4 {
-  nc -4vz $*
+nc -4vz $*
 }
 function test-port6 {
-  nc -6vz $*
+nc -6vz $*
 }
 function test-ssl4 {
-  openssl s_client -showcerts -4 -connect $* </dev/null
+openssl s_client -showcerts -4 -connect $* </dev/null
 }
 function test-ssl6 {
-  openssl s_client -showcerts -6 -connect $* </dev/null
+openssl s_client -showcerts -6 -connect $* </dev/null
 }
 function queuehash {
   erl -noshell -eval "<<Num:128>> = erlang:md5(term_to_binary({resource,<<\"$1\">>,queue,<<\"$2\">>})), io:format(\"~.36B~n\", [Num]), init:stop()."
 }
 function ssl-cert-exp {
-  test-ssl4 $* 2>/dev/null | openssl x509 -enddate -noout
+test-ssl4 $* 2>/dev/null | openssl x509 -enddate -noout
 }
 
 EDITOR="vim"
+echo "Profile loaded."
