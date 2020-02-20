@@ -68,7 +68,7 @@ ZSH_THEME="spuun"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew copyfile encode64 gem)
+plugins=(git copyfile encode64 gem)
 
 source $ZSH/oh-my-zsh.sh
 
