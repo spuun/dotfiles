@@ -190,3 +190,8 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
 command Json %!jq '.'
+
+
+" handle large files
+set maxmempattern=5000
+set redrawtime=5000
