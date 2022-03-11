@@ -2,7 +2,7 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP> noremap <Right> <NOP>
 set nocompatible              " be iMproved, required
-filetype on                  " required
+filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -33,16 +33,16 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'scrooloose/syntastic'
 "
 
+" programming language packs, installs lang when needed
+Plugin 'sheerun/vim-polyglot'
+
 " Async lint
 Plugin 'w0rp/ale'
 
 " git/hub stuff
 "Plugin 'tpope/vim-rhubarb'
 
-" programming language packs, installs lang when needed
-Plugin 'sheerun/vim-polyglot'
-
-Plugin 'vim-ruby/vim-ruby'
+"Plugin 'vim-ruby/vim-ruby'
 
 " Show modified lines according to git
 Plugin 'airblade/vim-gitgutter'
@@ -60,9 +60,9 @@ Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'mileszs/ack.vim'
 
 " Erlang
-Plugin 'vim-erlang/vim-erlang-compiler'
-Plugin 'jimenezrick/vimerl'
-Plugin 'edkolev/erlang-motions.vim'
+"Plugin 'vim-erlang/vim-erlang-compiler'
+"Plugin 'jimenezrick/vimerl'
+"Plugin 'edkolev/erlang-motions.vim'
 
 " Go
 Plugin 'fatih/vim-go'
@@ -92,7 +92,7 @@ vnoremap <c-]> :CtrlPtjumpVisual<cr>
 " jump directly to tag of only one found
 let g:ctrlp_tjump_only_silent = 1
 
-syntax on
+syntax enable
 set number
 set hlsearch
 
