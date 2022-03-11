@@ -20,7 +20,9 @@ fi
 
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
+  echo "Loading nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  echo "Loaded nvm"
 fi
 __sshcmd=`which ssh`
 ssh() {
