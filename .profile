@@ -24,12 +24,12 @@ if [ -d "$HOME/.nvm" ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   echo "Loaded nvm"
 fi
-__sshcmd=`which ssh`
-ssh() {
-  [ -n "$TMUX" ] && tmux rename-window "${@:-1}"
-  ${__sshcmd} "$@"
-  [ -n "$TMUX" ] && tmux setw automatic-rename
-}
+#__sshcmd=`which ssh`
+#ssh() {
+#  #[ -n "$TMUX" ] && tmux rename-window "${@:-1}"
+#  ${__sshcmd} "$@"
+#  #[ -n "$TMUX" ] && tmux setw automatic-rename
+#}
 
 darwin_only() {
   alias git=hub
