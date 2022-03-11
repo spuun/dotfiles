@@ -1,6 +1,8 @@
 [alias]
   st = status -s
   lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[init]
+  defaultBranch = main
 [user]
   name = Jon Börjesson
   email = jon@spuun.se
