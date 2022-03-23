@@ -17,13 +17,18 @@ if [[ -d "$HOME/code/tools/bin" ]]; then
 fi
 
 # NVM
-
-if [ -d "$HOME/.nvm" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  echo "Loading nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  echo "Loaded nvm"
-fi
+function nvm() {
+  if [ -d "$HOME/.nvm" ]; then
+    unset -f nvm
+    export NVM_DIR="$HOME/.nvm"
+    echo "Loading nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    echo "Loaded nvm"
+    nvm $*
+  else
+    echo "nvm not installed?"
+  fi
+}
 #__sshcmd=`which ssh`
 #ssh() {
 #  #[ -n "$TMUX" ] && tmux rename-window "${@:-1}"
