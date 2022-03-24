@@ -3,13 +3,14 @@ kernel=`uname`
 
 export LC_ALL=en_US.UTF-8
 export HISTCONTROL=ignorespace
+export EDITOR=vim
 
 if [[ ":$PATH:" != *":/usr/local/sbin:"* ]]; then
   export PATH=$PATH:/usr/local/sbin
 fi
 
 if [ -d "/opt/homebrew/bin" ] && [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
-  export PATH=/opt/homebrew//bin:$PATH
+  export PATH=/opt/homebrew/bin:$PATH
 fi
 
 if [[ -d "$HOME/.bin" ]]; then
