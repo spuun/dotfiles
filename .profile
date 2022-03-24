@@ -17,6 +17,9 @@ if [[ -d "$HOME/.bin" ]]; then
   export PATH=$HOME/.bin:$PATH
 fi
 
+if [[ -d "$HOME/84codes/tools/bin" ]]; then
+  export PATH=$PATH:$HOME/84codes/tools/bin
+fi
 
 if [[ -d "$HOME/code/tools/bin" ]]; then
   export PATH=$PATH:$HOME/code/tools/bin
