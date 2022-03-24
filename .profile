@@ -8,9 +8,14 @@ if [[ ":$PATH:" != *":/usr/local/sbin:"* ]]; then
   export PATH=$PATH:/usr/local/sbin
 fi
 
+if [ -d "/opt/homebrew/bin" ] && [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
+  export PATH=/opt/homebrew//bin:$PATH
+fi
+
 if [[ -d "$HOME/.bin" ]]; then
   export PATH=$HOME/.bin:$PATH
 fi
+
 
 if [[ -d "$HOME/code/tools/bin" ]]; then
   export PATH=$PATH:$HOME/code/tools/bin
