@@ -1,0 +1,42 @@
+#!/usr/local/bin/bash
+
+opt_sshkey=true
+opt_refreshrepo=true
+while [[ $# -gt 0 ]]
+do
+  key="$1"
+  case $key in
+    -g|--no-git)
+      opt_refreshrepo=false
+      shift
+      ;;
+    -n|--no-key)
+      opt_sshkey=false
+      shift
+      ;;
+    *)
+      echo "Unknown opt: $1"
+      shift
+      ;;
+  esac
+done
+
+sign_ssh_key() {
+  (
+  echo "Sign ssh key"
+  until sign-ssh-key; do
+    echo "Try sign again"
+  done
+  echo "Updating ssh-agent"
+  /usr/bin/ssh-add -D && /usr/bin/ssh-add -K
+  )
+}
+
+if [ $opt_sshkey = true ]; then
+  sign_ssh_key
+fi
+
+if [ $opt_refreshrepo = true ]; then
+  (cd && mr -j5 update)
+fi
+
