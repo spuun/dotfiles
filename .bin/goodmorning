@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 opt_sshkey=true
 opt_refreshrepo=true
