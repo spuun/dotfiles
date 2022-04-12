@@ -41,6 +41,15 @@ function nvm() {
     echo "nvm not installed?"
   fi
 }
+
+function npm() {
+  unset -f npm
+  command -v npm 2>&1 > /dev/null
+  if [ $? != 0 ]; then
+    nvm
+  fi
+  npm $*
+}
 #__sshcmd=`which ssh`
 #ssh() {
 #  #[ -n "$TMUX" ] && tmux rename-window "${@:-1}"
