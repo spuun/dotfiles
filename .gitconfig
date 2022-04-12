@@ -17,3 +17,5 @@
   driver = keepMine.sh %O %A %B
 [advice]
 	pushNonFastForward = false
+[pull]
+	rebase = true
