@@ -128,23 +128,21 @@ function rmb {
 
 
 function test-port4 {
-nc -4vz $*
+  nc -4vz $*
 }
 function test-port6 {
-nc -6vz $*
+  nc -6vz $*
 }
 function test-ssl4 {
-openssl s_client -showcerts -4 -connect $* </dev/null
+  openssl s_client -showcerts -4 -connect $* </dev/null
 }
 function test-ssl6 {
-openssl s_client -showcerts -6 -connect $* </dev/null
-}
-function queuehash {
-  erl -noshell -eval "<<Num:128>> = erlang:md5(term_to_binary({resource,<<\"$1\">>,queue,<<\"$2\">>})), io:format(\"~.36B~n\", [Num]), init:stop()."
+  openssl s_client -showcerts -6 -connect $* </dev/null
 }
 function ssl-cert-exp {
-test-ssl4 $* 2>/dev/null | openssl x509 -enddate -noout
+  test-ssl4 $* 2>/dev/null | openssl x509 -enddate -noout
 }
+
 
 EDITOR="vim"
 echo "Profile loaded."
