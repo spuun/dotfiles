@@ -182,7 +182,6 @@ let g:go_version_warning = 0
 " lint
 let g:ale_linters = {
 \   'javascript': ['standard'],
-\   'erlang': [],
 \   'ruby': ['rubocop']
 \}
 let g:ale_fixers = {'javascript': ['standard']}
