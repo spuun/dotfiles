@@ -16,7 +16,7 @@ function prompt_username() {
 function prompt_directory() {
   echo "%~"
 }
-PROMPT='$(prompt_arch) $(prompt_username) $(prompt_directory) $(git_prompt_info) %(?,%F{green},%F{red})#%f '
+PROMPT='$(prompt_ssh)$(prompt_arch) $(prompt_username) $(prompt_directory) $(git_prompt_info) %(?,%F{green},%F{red})#%f '
 #PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 #PROMPT='%m $(git_prompt_info)%(?,%{$fg[green]%},%{$fg[red]%})#%{$reset_color%} '
 
