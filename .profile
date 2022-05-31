@@ -5,16 +5,22 @@ export LC_ALL=en_US.UTF-8
 export HISTCONTROL=ignorespace
 export EDITOR=vim
 
+# Setup ruby env (this will update PATH)
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+
 if [[ ":$PATH:" != *":/usr/local/sbin:"* ]]; then
   export PATH=$PATH:/usr/local/sbin
 fi
 
-if [ -d "/opt/homebrew/bin" ] && [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
-  export PATH=/opt/homebrew/bin:$PATH
-fi
-
-if [[ -d "$HOME/.bin" ]]; then
-  export PATH=$HOME/.bin:$PATH
+if [ $(arch) = 'arm64' ]; then
+  if [ -d "/opt/homebrew/bin" ] && [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
+    export PATH=/opt/homebrew/bin:$PATH
+  fi
+else
+  if [ -d "/usr/local/Homebrew" ] && [[ ":$PATH:" != *":/usr/local/Homebrew/bin:"* ]]; then
+    export PATH=/usr/local/Homebrew/bin:$PATH
+  fi
 fi
 
 if [[ -d "$HOME/84codes/tools/bin" ]]; then
@@ -24,6 +30,12 @@ fi
 if [[ -d "$HOME/code/tools/bin" ]]; then
   export PATH=$PATH:$HOME/code/tools/bin
 fi
+
+if [[ -d "$HOME/.bin" ]]; then
+  export PATH=$HOME/.bin:$PATH
+fi
+
+
 
 # NVM
 function nvm() {
@@ -62,11 +74,13 @@ darwin_only() {
   gpp() {
     git push origin && git push heroku
   }
-gppl() {
-  gpp && heroku logs -t
-}
+  gppl() {
+    gpp && heroku logs -t
+  }
 
-export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+  alias intel='arch -x86_64 zsh'
+
+  export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 }
 
 ubuntu_only()
@@ -85,9 +99,6 @@ case "$kernel" in
     esac
     ;;
 esac  
-
-# Setup ruby env
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 
 if [ -f $HOME/.env_vars ]; then
