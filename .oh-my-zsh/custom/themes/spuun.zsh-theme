@@ -6,7 +6,7 @@ function prompt_arch() {
   fi
 }
 function prompt_ssh() {
-  if [ -n $SSH_CONNECTION ]; then
+  if [ "$SSH_CONNECTION*" != "*" ]; then
     echo "📶"
   fi
 }
