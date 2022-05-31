@@ -5,6 +5,11 @@ export LC_ALL=en_US.UTF-8
 export HISTCONTROL=ignorespace
 export EDITOR=vim
 
+if [ -f $HOME/.env_vars ]; then
+  source $HOME/.env_vars
+fi
+
+
 # Setup ruby env (this will update PATH)
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -100,10 +105,6 @@ case "$kernel" in
     ;;
 esac  
 
-
-if [ -f $HOME/.env_vars ]; then
-  source $HOME/.env_vars
-fi
 
 function rmb {
   current_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
