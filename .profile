@@ -40,9 +40,7 @@ if [[ -d "$HOME/.bin" ]]; then
   export PATH=$HOME/.bin:$PATH
 fi
 
-
-
-# NVM
+# Lazy init NVM
 function nvm() {
   if [ -d "$HOME/.nvm" ]; then
     unset -f nvm
@@ -67,12 +65,7 @@ function npm() {
   fi
   npm $*
 }
-#__sshcmd=`which ssh`
-#ssh() {
-#  #[ -n "$TMUX" ] && tmux rename-window "${@:-1}"
-#  ${__sshcmd} "$@"
-#  #[ -n "$TMUX" ] && tmux setw automatic-rename
-#}
+
 
 darwin_only() {
   alias git=hub
@@ -88,8 +81,8 @@ darwin_only() {
   export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 }
 
-ubuntu_only()
-{
+ubuntu_only() {
+  echo "Nothing"
 }
 
 case "$kernel" in
@@ -103,7 +96,7 @@ case "$kernel" in
         ;;
     esac
     ;;
-esac  
+esac
 
 
 function rmb {
