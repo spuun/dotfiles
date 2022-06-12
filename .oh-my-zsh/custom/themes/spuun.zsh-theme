@@ -1,5 +1,6 @@
 function prompt_arch() {
-  if [ $(arch) = 'arm64' ]; then
+  arch=$(arch)
+  if [ ${arch} = 'arm64' ] || [ ${arch} = 'aarch64' ]; then
     echo "💪"
   else
     echo "🤖"
