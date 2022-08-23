@@ -37,6 +37,7 @@ if [ $opt_sshkey = true ]; then
 fi
 
 if [ $opt_refreshrepo = true ]; then
-  (cd && mr -j5 update)
+  [ -d "$HOME/84codes" ] && 
+  (cd && mr --stats --minimal --quiet -j5 update)
 fi
 
