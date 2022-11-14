@@ -4,6 +4,9 @@ noremap <Left> <NOP> noremap <Right> <NOP>
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+"disable graphql
+let g:polyglot_disabled = ['graphql']
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -37,7 +40,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'sheerun/vim-polyglot'
 
 " Async lint
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 
 " git/hub stuff
 "Plugin 'tpope/vim-rhubarb'
@@ -54,20 +57,17 @@ Plugin 'NLKNguyen/papercolor-theme'
 
 " Open files
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ivalkeen/vim-ctrlp-tjump'
+"Plugin 'ivalkeen/vim-ctrlp-tjump'
 
 " Silver searcher (ag in bash)
 Plugin 'mileszs/ack.vim'
-
-" Erlang
-"Plugin 'vim-erlang/vim-erlang-compiler'
-"Plugin 'jimenezrick/vimerl'
-"Plugin 'edkolev/erlang-motions.vim'
 
 " Go
 Plugin 'fatih/vim-go'
 
 Plugin 'editorconfig/editorconfig-vim'
+
+Plugin 'vim-crystal/vim-crystal'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -155,13 +155,10 @@ let g:syntastic_ruby_rubocop_exec = '/Users/jon/.rbenv/shims/rubocop'
 " let g:syntastic_javascript_checkers = ['jshint']
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-"disable graphql
-let g:polyglot_disabled = ['graphql']
 
-" erlang
-autocmd BufRead,BufNewFile *.erl,*.es.*.hrl,*.yaws,*.xrl set expandtab
-au BufNewFile,BufRead *.erl,*.es,*.hrl,*.yaws,*.xrl setf erlang
-let g:syntastic_mode_map = { 'passive_filetypes': ['erlang'] } 
+" Crystal
+let g:crystal_auto_format = 1
+
 
 "faster pane switching
 nnoremap <c-h> <c-w>h
