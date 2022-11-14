@@ -69,8 +69,6 @@ ZSH_THEME="spuun"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git copyfile encode64 gem)
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-#autoload -Uz compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,8 +97,19 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 if [ -f "$HOME/.profile" ]; then
   source $HOME/.profile
 else
   echo "! No .profile !" 
 fi
+
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+if type brew &>/dev/null
+then
+    fpath+=$(brew --prefix)/share/zsh/site-functions
+fi
+
+autoload -Uz compinit && compinit
+
