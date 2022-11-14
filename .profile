@@ -20,7 +20,7 @@ fi
 
 if [ $(arch) = 'arm64' ]; then
   if [ -d "/opt/homebrew/bin" ] && [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
-    export PATH=/opt/homebrew/bin:$PATH
+    export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
   fi
 else
   if [ -d "/usr/local/Homebrew" ] && [[ ":$PATH:" != *":/usr/local/Homebrew/bin:"* ]]; then
