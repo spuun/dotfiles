@@ -28,7 +28,7 @@ sign_ssh_key() {
     echo "Try sign again"
   done
   echo "Updating ssh-agent"
-  /usr/bin/ssh-add -D && /usr/bin/ssh-add -K
+  /usr/bin/ssh-add -D && /usr/bin/ssh-add --apple-use-keychain
   )
 }
 
