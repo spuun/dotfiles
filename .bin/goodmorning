@@ -10,7 +10,7 @@ do
       opt_refreshrepo=false
       shift
       ;;
-    -n|--no-key)
+    -k|--no-key)
       opt_sshkey=false
       shift
       ;;
