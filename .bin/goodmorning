@@ -34,6 +34,7 @@ sign_ssh_key() {
 }
 
 if [ $opt_sshkey = true ]; then
+  SIGN_SSH_KEY_RESET_AGENT=true
   sign_ssh_key
 fi
 
