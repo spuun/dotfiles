@@ -50,11 +50,11 @@ function nvm() {
     command -v nvm 2>&1 > /dev/null
     if [ $? != 0 ]; then
       export NVM_DIR="$HOME/.nvm"
-      echo "Loading nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-      echo "Loaded nvm"
     fi
-    nvm $*
+    if [ $# -gt 0 ]; then
+      nvm $*
+    fi
   else
     echo "nvm not installed?"
   fi
