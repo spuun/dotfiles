@@ -69,6 +69,10 @@ Plugin 'editorconfig/editorconfig-vim'
 
 Plugin 'vim-crystal/vim-crystal'
 
+"Plugin 'neoclide/coc.nvim'
+"
+Plugin 'github/copilot.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -87,12 +91,15 @@ filetype plugin on
 set tags=./.tags;
 
 "c-å to jump to tag
-nnoremap <c-]> :CtrlPtjump<cr>
-vnoremap <c-]> :CtrlPtjumpVisual<cr>
+"nnoremap <c-]> :CtrlPtjump<cr>
+"vnoremap <c-]> :CtrlPtjumpVisual<cr>
 " jump directly to tag of only one found
-let g:ctrlp_tjump_only_silent = 1
+"let g:ctrlp_tjump_only_silent = 1
 
 syntax enable
+let g:solarized_termcolors=256
+set background=light
+colorscheme solarized
 set number
 set hlsearch
 
@@ -101,16 +108,17 @@ set listchars=eol:$,tab:-->,trail:~,extends:>,precedes:<,nbsp:¶
 set list
 
 "let g:solarized_termcolors=256
-set background=dark
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'transparent_background': 1
-  \     }
-  \   }
-  \ }
+"set background=dark
+"let g:PaperColor_Theme_Options = {
+"  \   'theme': {
+"  \     'default': {
+"  \       'transparent_background': 1
+"  \     }
+"  \   }
+"  \ }
+"colorscheme PaperColor
 
-colorscheme PaperColor
+
 :hi SpecialKey ctermfg=darkgrey guifg=grey70
 :hi NonText ctermfg=darkgrey guifg=grey70
 
@@ -150,14 +158,17 @@ let g:ctrlp_user_command = {
   \ 'fallback': 'find %s -type f'
   \ }
 
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_ruby_rubocop_exec = '/Users/jon/.rbenv/shims/rubocop'
+"let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+"let g:syntastic_ruby_rubocop_exec = '/Users/jon/.rbenv/shims/rubocop'
 " let g:syntastic_javascript_checkers = ['jshint']
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 
 " Crystal
 let g:crystal_auto_format = 1
+let g:crystal_enable_completion = 0
+"autocmd FileType crystal  nnoremap <buffer> ,r :CrystalSpecRunCurrent<CR>
+"autocmd FileType crystal  nnoremap <buffer> ,R :CrystalSpecRunAll<CR>
 
 
 "faster pane switching
@@ -185,9 +196,45 @@ let g:ale_fixers = {'javascript': ['standard']}
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
+let g:ale_sign_error = '🛑'
+let g:ale_sign_warning = '⚠️'
+let g:ale_disable_lsp = 1
+
 command Json %!jq '.'
 
 
 " handle large files
 set maxmempattern=5000
 set redrawtime=5000
+
+" CoC
+"
+" " use <tab> to trigger completion and navigate to the next complete item
+"inoremap <silent><expr> <c-n> coc#refresh()
+"inoremap <silent><expr> <tab> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : "\<C-g>u\<CR>"
+"inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+"inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+"
+"inoremap <silent><expr> <TAB>
+"      \ coc#pum#visible() ? coc#pum#next(1) :
+"      \ CheckBackspace() ? "\<Tab>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+"
+"" Make <CR> to accept selected completion item or notify coc.nvim to format
+"" " <C-g>u breaks current undo, please make your own choice
+"inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+"      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"
+"function! CheckBackspace() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+"
+"" Use <c-space> to trigger completion
+"if has('nvim')
+"  inoremap <silent><expr> <c-space> coc#refresh()
+"else
+"  inoremap <silent><expr> <c-@> coc#refresh()
+"endif
+"
