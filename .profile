@@ -13,7 +13,6 @@ fi
 # Setup ruby env (this will update PATH)
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-
 if [[ ":$PATH:" != *":/usr/local/sbin:"* ]]; then
   export PATH=$PATH:/usr/local/sbin
 fi
@@ -26,6 +25,10 @@ else
   if [ -d "/usr/local/Homebrew" ] && [[ ":$PATH:" != *":/usr/local/Homebrew/bin:"* ]]; then
     export PATH=/usr/local/Homebrew/bin:$PATH
   fi
+fi
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
 fi
 
 if [[ -d "$HOME/84codes/tools/bin" ]]; then
