@@ -151,7 +151,9 @@ function ssl-cert-exp {
   test-ssl4 $* 2>/dev/null | openssl x509 -enddate -noout
 }
 
-alias tmux='tmux -u'
+nvm
+
+#alias tmux='tmux -u'
 
 
 EDITOR="vim"
