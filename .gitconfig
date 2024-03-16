@@ -6,6 +6,7 @@
 [user]
   name = Jon Börjesson
   email = jon@spuun.se
+  signingkey = ~/.ssh/id_ed25519.pub
 [color]
   ui=true
 [core]
@@ -14,8 +15,10 @@
   attributesfile = ~/.gitattributes
 [merge "keepMine"]
   name = always keep mine during merge
-  driver = keepMine.sh %O %A %B
+  driver = true
 [advice]
-	pushNonFastForward = false
+  pushNonFastForward = false
 [pull]
-	rebase = true
+  rebase = true
+[gpg]
+  format = ssh
