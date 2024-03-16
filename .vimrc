@@ -102,6 +102,8 @@ set background=light
 colorscheme solarized
 set number
 set hlsearch
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 
 "show invisibles
 set listchars=eol:$,tab:-->,trail:~,extends:>,precedes:<,nbsp:¶
