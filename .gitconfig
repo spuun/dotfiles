@@ -1,13 +1,12 @@
 [alias]
   st = status -s
   lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	lg = log --all --decorate --oneline --graph
+  lg = log --all --decorate --oneline --graph
 [init]
   defaultBranch = main
 [user]
   name = Jon Börjesson
   email = jon@spuun.se
-  signingkey = ~/.ssh/id_ed25519.pub
 [color]
   ui=true
 [core]
@@ -23,3 +22,13 @@
   rebase = true
 [gpg]
   format = ssh
+[rerere]
+  enabled = true
+[branch]
+  sort = -committerdate
+[column]
+  ui = auto
+[commit]
+  gpgsign = true
+[include]
+  path = .gitconfig.local
