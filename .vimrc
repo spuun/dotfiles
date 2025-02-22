@@ -33,8 +33,6 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
-" Plugin 'scrooloose/syntastic'
-"
 
 " programming language packs, installs lang when needed
 Plugin 'sheerun/vim-polyglot'
@@ -73,6 +71,7 @@ Plugin 'vim-crystal/vim-crystal'
 "
 Plugin 'github/copilot.vim'
 
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -88,7 +87,10 @@ filetype plugin on
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
-set tags=./.tags;
+"set tags=./.tags;
+
+" turn on relative line numbers, but use actual number for current line
+set number relativenumber
 
 "c-å to jump to tag
 "nnoremap <c-]> :CtrlPtjump<cr>
@@ -100,25 +102,13 @@ syntax enable
 let g:solarized_termcolors=256
 set background=light
 colorscheme solarized
-set number
-set hlsearch
+"set hlsearch
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
 "show invisibles
-set listchars=eol:$,tab:-->,trail:~,extends:>,precedes:<,nbsp:¶
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:¶
 set list
-
-"let g:solarized_termcolors=256
-"set background=dark
-"let g:PaperColor_Theme_Options = {
-"  \   'theme': {
-"  \     'default': {
-"  \       'transparent_background': 1
-"  \     }
-"  \   }
-"  \ }
-"colorscheme PaperColor
 
 
 :hi SpecialKey ctermfg=darkgrey guifg=grey70
@@ -176,7 +166,7 @@ let g:crystal_enable_completion = 0
 "faster pane switching
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k 
+nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 "faster pane resizing
