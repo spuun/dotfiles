@@ -49,7 +49,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
-"Plugin 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 "Plugin 'nightsense/stellarized'
 Plugin 'NLKNguyen/papercolor-theme'
 
