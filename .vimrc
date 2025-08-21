@@ -100,11 +100,11 @@ set number relativenumber
 
 syntax enable
 let g:solarized_termcolors=256
-set background=light
-colorscheme solarized
+"set background=light
+"colorscheme solarized
 "set hlsearch
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
+"highlight Normal ctermbg=none
+"highlight NonText ctermbg=none
 
 "show invisibles
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:¶
