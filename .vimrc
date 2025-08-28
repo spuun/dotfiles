@@ -178,6 +178,7 @@ nnoremap <c-left> <c-w><
 nnoremap <c-up> <c-w>+
 nnoremap <c-down> <c-w>-
 
+
 " gostuff
 let g:go_fmt_autosave = 1
 let g:go_version_warning = 0
@@ -194,6 +195,7 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_error = '🛑'
 let g:ale_sign_warning = '⚠️'
 let g:ale_disable_lsp = 1
+highlight ALEWarning ctermbg=DarkMagenta
 
 command Json %!jq '.'
 
