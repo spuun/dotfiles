@@ -97,6 +97,7 @@ set number relativenumber
 "vnoremap <c-]> :CtrlPtjumpVisual<cr>
 " jump directly to tag of only one found
 "let g:ctrlp_tjump_only_silent = 1
+:nnoremap <c-o> :CtrlPBuffer<cr>
 
 syntax enable
 let g:solarized_termcolors=256
@@ -161,6 +162,8 @@ let g:crystal_auto_format = 1
 let g:crystal_enable_completion = 0
 "autocmd FileType crystal  nnoremap <buffer> ,r :CrystalSpecRunCurrent<CR>
 "autocmd FileType crystal  nnoremap <buffer> ,R :CrystalSpecRunAll<CR>
+autocmd FileType crystal nnoremap <buffer> ,r :!crystal run "%"<CR>
+autocmd FileType crystal nnoremap <buffer> ,R :!crystal run "%" -Dpreview_mt -Dexecution_context<CR>
 
 
 "faster pane switching
