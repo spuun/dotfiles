@@ -155,7 +155,7 @@ nvm
 
 #alias tmux='tmux -u'
 
+alias vim=nvim
 export XDG_CONFIG_HOME="$HOME/.config"
-
 EDITOR="nvim"
 echo "Profile loaded."
