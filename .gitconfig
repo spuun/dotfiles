@@ -13,6 +13,7 @@
   editor = vim
   excludesfile = ~/.gitignore_global
   attributesfile = ~/.gitattributes
+  hooksPath = ~/.git_global/hooks
 [merge "keepMine"]
   name = always keep mine during merge
   driver = true
