@@ -36,3 +36,7 @@
   path = .gitconfig.local
 [pager]
 	branch = false
+[branch "main"]
+	pushRemote = you_have_disabled_push_for_this_branch_in_your_global_gitconfig
+[branch "master"]
+	pushRemote = you_have_disabled_push_for_this_branch_in_your_global_gitconfig
