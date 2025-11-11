@@ -34,3 +34,5 @@
   gpgsign = true
 [include]
   path = .gitconfig.local
+[pager]
+	branch = false
