@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+[[ -d ".bare" ]] || (echo "No .bare in $(pwd)" && exit 1)
+
+for path in $(git worktree list | grep -v '(bare)' | cut -f1 -d' ')
+do
+  pushd ${path} > /dev/null
+  if [[ -e '.git' ]]; then
+    echo "Updating worktree: ${path}"
+    git pull --rebase
+  fi
+  popd > /dev/null
+done
+

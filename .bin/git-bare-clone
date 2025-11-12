@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -x
+
+[[ $# -lt 1 ]] && { echo "Usage: git bare-clone <git-repo-url> [target-directory]"; exit 1; }
+
+target=${2:-.}
+git_path=$1
+
+
+echo "target ${target}"
+
+git clone --bare ${git_path} "$target/.bare"
+pushd "$target/.bare" > /dev/null
+git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+popd > /dev/null
+echo "gitdir: $target/.bare" > .git
+echo "done"
+
+#pushd .bare
+#git clone --bare $1 .bare

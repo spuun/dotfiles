@@ -1,0 +1,6 @@
+#!/bin/sh
+branches=$(git branch --no-column --sort=-committerdate | head -n 10 | sed -E 's/^[ *]+//')
+
+select b in $branches; do
+  git checkout ${b} && break
+done
