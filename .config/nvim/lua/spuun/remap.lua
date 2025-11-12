@@ -14,3 +14,7 @@ local ts_wt = require('telescope')
 local wt = ts_wt.extensions.git_worktree
 vim.keymap.set('n', '<leader>wts', wt.git_worktree, {  desc = 'Switch worktree' })
 vim.keymap.set('n', '<leader>wtc', wt.create_git_worktree, {  desc = 'Create worktree' })
+
+
+-- paste without put selected text into buffer
+vim.keymap.set('v', 'p', '"_dp')
