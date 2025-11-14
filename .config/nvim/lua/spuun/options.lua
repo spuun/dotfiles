@@ -36,3 +36,5 @@ vim.g.crystal_enable_completion = 0
 set.mouse = ''
 
 set.termguicolors = true
+
+set.colorcolumn = "80"
