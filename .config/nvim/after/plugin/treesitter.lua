@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd('FileType', {
     for index, value in ipairs(parsers) do
       if value == ev.match then
         --print(string.format('event fired: %s', vim.inspect(ev)))
-        vim.treesitter.start() 
+        pcall(vim.treesitter.start)
         return
       end
     end
