@@ -18,3 +18,6 @@ vim.keymap.set('n', '<leader>wtc', wt.create_git_worktree, {  desc = 'Create wor
 
 -- paste without put selected text into buffer
 vim.keymap.set('v', 'p', '"_dp')
+
+-- neogit
+vim.keymap.set('n', '<leader>G', require('neogit').open, { desc = 'Open GIT' })

@@ -40,4 +40,13 @@ return require('packer').startup(function(use)
     version = '^2',
     as='git-worktree'
   })
+
+  use({
+    "NeogitOrg/neogit",
+    requires = {
+      "nvim-lua/plenary.nvim",         -- required
+      -- "sindrets/diffview.nvim",        -- optional - Diff integration
+      "nvim-telescope/telescope.nvim", -- optional
+    }
+  })
 end)
