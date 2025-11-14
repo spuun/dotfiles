@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Update all worktrees in a bare repo
+
 [[ -d ".bare" ]] || (echo "No .bare in $(pwd)" && exit 1)
 
 for path in $(git worktree list | grep -v '(bare)' | cut -f1 -d' ')

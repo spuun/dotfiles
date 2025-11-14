@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Clone bare repository in a nice way
+# Hide all git meta in .bare
+
 set -x
 
 [[ $# -lt 1 ]] && { echo "Usage: git bare-clone <git-repo-url> [target-directory]"; exit 1; }
