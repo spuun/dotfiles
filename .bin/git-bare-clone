@@ -3,15 +3,22 @@
 # Clone bare repository in a nice way
 # Hide all git meta in .bare
 
-set -x
+set +x
 
-[[ $# -lt 1 ]] && { echo "Usage: git bare-clone <git-repo-url> [target-directory]"; exit 1; }
+usage() {
+  echo "Usage: git bare-clone <git-repo-url> [target-directory]"
+}
+error() {
+  echo "Error: $@"
+}
+
+[[ $# -lt 1 ]] && usage && exit 1
+[[ $1 =~ "git@github" ]] || error "'$1' is not a git url" && usage && exit 1
 
 target=${2:-.}
 git_path=$1
 
-
-echo "target ${target}"
+echo "Target ${target}"
 
 git clone --bare ${git_path} "$target/.bare"
 pushd "$target/.bare" > /dev/null
