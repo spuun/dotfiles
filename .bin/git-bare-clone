@@ -11,9 +11,13 @@ usage() {
 error() {
   echo "Error: $@"
 }
-
 [[ $# -lt 1 ]] && usage && exit 1
-[[ $1 =~ "git@github" ]] || error "'$1' is not a git url" && usage && exit 1
+if ! [[ $1 =~ "git@github" ]];
+then
+    error "'$1' is not a git url" 
+    usage 
+    exit 1
+fi
 
 target=${2:-.}
 git_path=$1
@@ -24,7 +28,7 @@ git clone --bare ${git_path} "$target/.bare"
 pushd "$target/.bare" > /dev/null
 git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 popd > /dev/null
-echo "gitdir: $target/.bare" > .git
+echo "gitdir: $target/.bare" > $target/.git
 echo "done"
 
 #pushd .bare
