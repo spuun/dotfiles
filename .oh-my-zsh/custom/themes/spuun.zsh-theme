@@ -9,10 +9,10 @@ function prompt_arch() {
 
 
 function prompt_username() {
-  echo " %n"
+  echo " %n"
 }
 function prompt_directory() {
-  echo "%~"
+  echo " %~"
 }
 function prompt_git_remote() {
   remote=$(git remote -v 2>/dev/null | head -n 1 | cut -w -f 2) || return
