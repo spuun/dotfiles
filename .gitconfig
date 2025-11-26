@@ -2,6 +2,7 @@
   st = status -s
   lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
   lg = log --all --decorate --oneline --graph
+  wt = worktree
 [init]
   defaultBranch = main
 [user]
