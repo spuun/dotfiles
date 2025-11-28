@@ -25,7 +25,7 @@ set.relativenumber = true
 set.hlsearch = false
 set.incsearch = true
 
-vim.scrolloff = 8
+set.scrolloff = 8
 
 vim.g.mapleader = " "
 
