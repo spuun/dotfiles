@@ -37,7 +37,7 @@ function prompt_machine() {
     echo "${MACHINE_ICON:-%m}"
   fi
 }
-PROMPT=$'\n''$(prompt_machine)$(prompt_arch) $(prompt_username) $(prompt_directory) $(prompt_git)'$'\n''%(?,%{%F{green}%},%{%F{red}%})#%f '
+PROMPT=$'\n''$(prompt_username) $(prompt_machine) $(prompt_directory) $(prompt_git)'$'\n''%(?,%{%F{green}%},%{%F{red}%})#%f '
 #PROMPT='$(prompt_machine)$(prompt_arch) $(prompt_username) $(prompt_directory) $(prompt_git) %(?,%{%F{green}%},%{%F{red}%})#%f '
 #PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 #PROMPT='%m $(git_prompt_info)%(?,%{$fg[green]%},%{$fg[red]%})#%{$reset_color%} '
