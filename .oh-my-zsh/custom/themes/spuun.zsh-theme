@@ -15,7 +15,7 @@ function prompt_directory() {
   echo " %~"
 }
 function prompt_git_remote() {
-  remote=$(git remote -v 2>/dev/null | head -n 1 | cut -w -f 2) || return
+  remote=$(git remote -v 2>/dev/null | head -n 1 | sed -e 's/[^[:blank:]]*[[:blank:]]\(.*\)[[:blank:]].*/\1/') || return
   if [[ $remote =~ http ]]; then
     remote=$(echo $remote | cut -d'/' -f4- | cut -d' ' -f1)
   else
