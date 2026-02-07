@@ -6,14 +6,16 @@ return require('packer').startup(function(use)
   use({
     'nvim-telescope/telescope.nvim', 
     branch = 'master',
+    --tag = 'v0.1.9',
     requires = { {'nvim-lua/plenary.nvim'} }
   })
 
-  use({
-    "kelly-lin/telescope-ag",
-    requires = { "nvim-telescope/telescope.nvim" },
-  })
+--  use({
+--    "kelly-lin/telescope-ag",
+--    requires = { "nvim-telescope/telescope.nvim" },
+--  })
 
+  -- colorscheme
   use({ 
     "rebelot/kanagawa.nvim",
     as = 'kanagawa'
@@ -35,11 +37,9 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   })
 
-  use({
-    'polarmutex/git-worktree.nvim',
-    version = '^2',
-    as='git-worktree'
-  })
+--  use({
+--    'nvim-mini/mini.pick'
+--  })
 
   use({
     "NeogitOrg/neogit",
