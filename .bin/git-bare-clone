@@ -6,12 +6,12 @@
 set +x
 
 usage() {
-  echo "Usage: git bare-clone <git-repo-url> [target-directory]"
+  echo "Usage: git bare-clone <git-repo-url> <target-directory>"
 }
 error() {
   echo "Error: $@"
 }
-[[ $# -lt 1 ]] && usage && exit 1
+[[ $# -lt 2 ]] && usage && exit 1
 if ! [[ $1 =~ "git@github" ]];
 then
     error "'$1' is not a git url" 
@@ -19,7 +19,7 @@ then
     exit 1
 fi
 
-target=${2:-.}
+target=$2
 git_path=$1
 
 echo "Target ${target}"
