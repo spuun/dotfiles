@@ -123,5 +123,7 @@ nvm
 
 alias vim=nvim
 export XDG_CONFIG_HOME="$HOME/.config"
-EDITOR="nvim"
+export EDITOR="nvim"
+export CRYSTAL_OPTS="-Dpreview_mt -Dexecution_context"
+alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 echo "Profile loaded."
