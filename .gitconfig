@@ -3,6 +3,8 @@
   lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
   lg = log --all --decorate --oneline --graph
   wt = worktree
+  wtr = worktree remove
+  wta = worktree add
 [init]
   defaultBranch = main
 [user]
