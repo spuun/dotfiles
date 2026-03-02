@@ -9,6 +9,14 @@ vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 --end)
 vim.keymap.set('n', '<leader>rg', builtin.live_grep, {})
 
+vim.keymap.set('n', '<leader>rs', function()
+  builtin.live_grep({search_dirs = {'src'}})
+end, {})
+vim.keymap.set('n', '<leader>rt', function()
+  builtin.live_grep({search_dirs = {'spec'}})
+end, {})
+
+
 -- Clone the default Telescope configuration
 local vimgrep_arguments = { unpack(config.values.vimgrep_arguments) }
 
