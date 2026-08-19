@@ -43,3 +43,19 @@
 	pushRemote = you_have_disabled_push_for_this_branch_in_your_global_gitconfig
 [branch "master"]
 	pushRemote = you_have_disabled_push_for_this_branch_in_your_global_gitconfig
+
+[includeIf "hasconfig:remote.*.url:git@github.com:84codes/**"]
+    path = ~/.gitconfig-84codes
+
+[includeIf "hasconfig:remote.*.url:git@github.com:cloudamqp/**"]
+    path = ~/.gitconfig-84codes
+
+[includeIf "hasconfig:remote.*.url:git@github.com:spuun/**"]
+    path = ~/.gitconfig-private
+
+[includeIf "hasconfig:remote.*.url:git@github.com:spuun/crystal.git"]
+    path = ~/.gitconfig-84codes
+
+
+
+
