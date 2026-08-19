@@ -43,6 +43,14 @@ if [[ -d "$HOME/.bin" ]]; then
   export PATH=$HOME/.bin:$PATH
 fi
 
+if [[ -d "$HOME/ai/bin" ]]; then
+  export PATH=$HOME/ai/bin:$PATH
+fi
+
+if [[ -d "$HOME/.local/bin" ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
 # Lazy init NVM
 function nvm() {
   if [ -d "$HOME/.nvm" ]; then
