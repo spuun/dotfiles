@@ -1,4 +1,4 @@
-require("spuun.packer")
+require("spuun.plugins")
 --require("telescope").load_extension("git_worktree")
 
 require("spuun.options")
