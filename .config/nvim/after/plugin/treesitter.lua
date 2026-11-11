@@ -2,13 +2,13 @@ local ts = require('nvim-treesitter')
 
 ts.install(
   {
-    'lua', 
-    'vim', 
+    'lua',
+    'vim',
     'vimdoc',
     'query',
 --    'markdown',
 --    'markdown_inline',
-  'json', 
+    'json',
 --    'yaml',
 --    'javascript',
 --    'css'
@@ -37,5 +37,3 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd('FileType', {
   callback = function() pcall(vim.treesitter.start) end,
 })
-
-
