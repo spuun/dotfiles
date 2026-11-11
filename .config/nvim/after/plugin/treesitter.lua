@@ -1,22 +1,6 @@
 local ts = require('nvim-treesitter')
 
-ts.install(
-  {
-    'lua',
-    'vim',
-    'vimdoc',
-    'query',
---    'markdown',
---    'markdown_inline',
-    'json',
---    'yaml',
---    'javascript',
---    'css'
-  },
-  -- Do not print summary, as this will run at startup always, all the time.
-  { summary = false }
-)
-
+-- Must exist before ts.install(), which fires TSUpdate to load parser specs.
 vim.api.nvim_create_autocmd("User", {
   pattern = 'TSUpdate',
   callback = function()
@@ -32,6 +16,24 @@ vim.api.nvim_create_autocmd("User", {
     }
   end,
 })
+
+ts.install(
+  {
+    'lua',
+    'vim',
+    'vimdoc',
+    'query',
+--    'markdown',
+--    'markdown_inline',
+    'json',
+    'crystal',
+--    'yaml',
+--    'javascript',
+--    'css'
+  },
+  -- Do not print summary, as this will run at startup always, all the time.
+  { summary = false }
+)
 
 -- start() maps filetype to parser itself and errors if none is installed.
 vim.api.nvim_create_autocmd('FileType', {
