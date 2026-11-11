@@ -7,7 +7,7 @@ vim.keymap.set('n', "<c-k>", "<c-w>k", { desc = "Switch to pane above" })
 vim.keymap.set('n', "<c-l>", "<c-w>l", { desc = "Switch to pane to the right" })
 
 -- paste without put selected text into buffer
-vim.keymap.set('v', 'p', '"_dp')
+vim.keymap.set('x', 'p', 'P', { desc = 'Paste without yanking selection' })
 
 
 -- Switch to prev buffer
