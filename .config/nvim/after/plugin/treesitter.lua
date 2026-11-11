@@ -33,8 +33,6 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-vim.treesitter.language.register("crystal", { "cr" })
-
 -- start() maps filetype to parser itself and errors if none is installed.
 vim.api.nvim_create_autocmd('FileType', {
   callback = function() pcall(vim.treesitter.start) end,
