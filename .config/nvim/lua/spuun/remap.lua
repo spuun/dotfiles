@@ -2,8 +2,8 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Pane switching
 vim.keymap.set('n', "<c-h>", "<c-w>h", { desc = "Switch to pane to the left" })
-vim.keymap.set('n', "<c-j>", "<c-w>j", { desc = "Switch to pane above" })
-vim.keymap.set('n', "<c-k>", "<c-w>k", { desc = "Switch to pane below" })
+vim.keymap.set('n', "<c-j>", "<c-w>j", { desc = "Switch to pane below" })
+vim.keymap.set('n', "<c-k>", "<c-w>k", { desc = "Switch to pane above" })
 vim.keymap.set('n', "<c-l>", "<c-w>l", { desc = "Switch to pane to the right" })
 
 -- paste without put selected text into buffer
